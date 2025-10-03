@@ -16,7 +16,7 @@ const CookieConsent = () => {
             contents.on('data', (chunk) => (htmlTxt += chunk));
             contents.on('end', () => {
                 const $ = cheerio.load(htmlTxt, {decodeEntities: false});
-                const options = JSON.stringify(hexo.config.cookieconsent.options);
+                const options = JSON.stringify(hexo.config.cookieconsent.options || {});
 
                 let injection = '<script ' +
                     'src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>' +
@@ -46,17 +46,17 @@ if (!hexo.config.cookieconsent || !hexo.config.cookieconsent.enable) {
     return;
 }
 
-hexo.config.cookieconsent = Object.assign({
-    options: {
-        "palette": {
-            "popup": {
-                "background": "#000"
-            },
-            "button": {
-                "background": "#f1d600"
-            }
+const defaultOptions = {
+    "palette": {
+        "popup": {
+            "background": "#000"
+        },
+        "button": {
+            "background": "#f1d600"
         }
     }
-}, hexo.config.cookieconsent);
+};
+
+hexo.config.cookieconsent.options = Object.assign(defaultOptions, hexo.config.cookieconsent.options || {});
 
 hexo.extend.filter.register('after_generate', CookieConsent);
