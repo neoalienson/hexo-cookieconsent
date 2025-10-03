@@ -19,12 +19,12 @@ const CookieConsent = () => {
                 const options = JSON.stringify(hexo.config.cookieconsent.options || {});
 
                 let injection = '<script ' +
-                    'src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>' +
+                    'src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>' +
                     `<script>window.addEventListener("load", function(){window.cookieconsent.initialise(${options})});</script>`;
 
                 $('body').after(injection);
 
-                let styles = '<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />';
+                let styles = '<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />';
                 $('head').append(styles);
 
                 htmls[hpath] = {hpath, $};
