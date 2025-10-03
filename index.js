@@ -18,10 +18,11 @@ const CookieConsent = () => {
                 const $ = cheerio.load(htmlTxt, {decodeEntities: false});
                 const options = JSON.stringify(hexo.config.cookieconsent.options || {});
 
-                let injection = `<script >CookieConsent.run(${options})</script>` +
-'<script ' + 
-'src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js' +
-'></script>';
+                let injection = 
+                    '<script ' + 
+                    'src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js' +
+                    '></script>' +
+                    `<script >CookieConsent.run(${options})</script>`;
                 $('body').after(injection);
 
                 let styles = '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">';
