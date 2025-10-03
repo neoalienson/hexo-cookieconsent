@@ -22,7 +22,7 @@ const CookieConsent = () => {
                     '<script ' + 
                     'src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"' +
                     '></script>' +
-                    `<script >CookieConsent.run(guiOptions: ${options})</script>`;
+                    `<script >CookieConsent.run(${options})</script>`;
                 $('body').after(injection);
 
                 let styles = '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">';
