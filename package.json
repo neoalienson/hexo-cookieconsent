@@ -4,7 +4,7 @@
   "description": "A hexo plugin for quickly adding the https://github.com/insites/cookieconsent/ lightweight JavaScript plugin for alerting users about the use of cookies on your website.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Yay: no tests!\"",
+    "test": "mocha test/*.test.js",
     "lint": "eslint ."
   },
   "repository": {
@@ -29,7 +29,8 @@
   "devDependencies": {
     "eslint": "8.55.0",
     "eslint-config-hexo": "5.0.0",
-    "hexo": "7.0.0"
+    "hexo": "7.0.0",
+    "mocha": "^10.8.2"
   },
   "directories": {
     "lib": "./lib"

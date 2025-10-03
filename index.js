@@ -18,13 +18,13 @@ const CookieConsent = () => {
                 const $ = cheerio.load(htmlTxt, {decodeEntities: false});
                 const options = JSON.stringify(hexo.config.cookieconsent.options || {});
 
-                let injection = '<script ' +
-                    'src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.js"></script>' +
-                    `<script>window.addEventListener("load", function(){window.cookieconsent.initialise(${options})});</script>`;
-
+                let injection = `<script >CookieConsent.run(${options})</script>` +
+'<script ' + 
+'src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js' +
+'></script>';
                 $('body').after(injection);
 
-                let styles = '<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />';
+                let styles = '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">';
                 $('head').append(styles);
 
                 htmls[hpath] = {hpath, $};
