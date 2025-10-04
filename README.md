@@ -1,24 +1,27 @@
 # hexo-cookieconsent
 
-A hexo plugin for quickly adding the https://github.com/insites/cookieconsent/ lightweight JavaScript plugin for alerting users about the use of cookies on your website.
+A hexo plugin for quickly adding the lightweight JavaScript plugin for alerting users about the use of cookies on your website.
 
 ## Installation
 
 ``` bash
 $ npm i hexo-cookieconsent
 ```
+
 ## Usage
 
 Inside your hexo _config.yml file.
+
 ``` yaml
 cookieconsent:
   enable: true
 ```
+
 The plugin has several options.
 
 ### Custom CSS and JS URLs
 
-You can specify custom URLs for the CSS and JS files:
+You can specify custom URLs for the CSS and JS files. This allows you to use local files or even other cookie consent libraries:
 
 ``` yaml
 cookieconsent:
@@ -27,7 +30,8 @@ cookieconsent:
   cssUrl: "/css/cookieconsent.css"   # Optional: custom CSS file URL
 ```
 
-To download the files locally:
+To download the files locally from one of the cookie consent library:
+
 - JS: https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js
 - CSS: https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css
 
@@ -35,7 +39,7 @@ If not specified, the plugin will use the default CDN URLs.
 
 ## Options
 
-Go to: https://cookieconsent.insites.com/download/
+Go to: https://playground.cookieconsent.orestbida.com/
 
 Create your cookieconsent how you want it using the form.
 Paste the configuration into your hexo _config.yml file under "options". The plugin automatically detects and supports both JSON and YAML formats.
@@ -64,12 +68,13 @@ cookieconsent:
                "message": "This website uses cookies to ensure you get the best experience on our website. Who doesn't like cookies?",
                "dismiss": "Feed me",
                "link": "Cookie recipes",
-               "href": "buzzcat.com"
+               "href": "neo01.com"
              }
            }
 ```
 
 ### YAML Format
+
 ``` yaml
 cookieconsent:
   enable: true
@@ -89,13 +94,11 @@ cookieconsent:
       message: "This website uses cookies to ensure you get the best experience on our website. Who doesn't like cookies?"
       dismiss: "Feed me"
       link: "Cookie recipes"
-      href: "buzzcat.com"
+      href: "neo01.com"
 ```
 
 The script is inserted during hexo generate so don't forget:
+
 ```
 hexo generate
 ```
-
-
-TODO: advanced compliance options
