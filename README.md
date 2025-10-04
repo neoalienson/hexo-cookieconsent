@@ -37,6 +37,18 @@ To download the files locally from one of the cookie consent library:
 
 If not specified, the plugin will use the default CDN URLs.
 
+### Disable JS Injection
+
+You can disable JavaScript injection when the JS is concatenated with other scripts for performance:
+
+``` yaml
+cookieconsent:
+  enable: true
+  injectJs: false  # Optional: disable JS injection (default: true)
+```
+
+When `injectJs` is set to `false`, you'll need to manually include the cookie consent library and call `CookieConsent.run(options)` in your own scripts.
+
 ## Options
 
 Go to: https://playground.cookieconsent.orestbida.com/
@@ -51,6 +63,7 @@ cookieconsent:
   enable: true
   jsUrl: "/js/cookieconsent.umd.js"  # Optional
   cssUrl: "/css/cookieconsent.css"   # Optional
+  injectJs: false                     # Optional: disable JS injection
   options: {
              "palette": {
                "popup": {
@@ -80,6 +93,7 @@ cookieconsent:
   enable: true
   jsUrl: "/js/cookieconsent.umd.js"  # Optional
   cssUrl: "/css/cookieconsent.css"   # Optional
+  injectJs: false                     # Optional: disable JS injection
   options:
     palette:
       popup:
