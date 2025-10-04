@@ -20,14 +20,17 @@ const CookieConsent = () => {
                     ? hexo.config.cookieconsent.options 
                     : JSON.stringify(hexo.config.cookieconsent.options);
 
+                const jsUrl = hexo.config.cookieconsent.jsUrl || 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js';
+                const cssUrl = hexo.config.cookieconsent.cssUrl || 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css';
+
                 let injection = 
                     '<script ' + 
-                    'src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.umd.js"' +
+                    `src="${jsUrl}"` +
                     '></script>' +
                     `<script >CookieConsent.run(${options})</script>`;
                 $('body').after(injection);
 
-                let styles = '<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css">';
+                let styles = `<link rel="stylesheet" type="text/css" href="${cssUrl}">`;
                 $('head').append(styles);
 
                 htmls[hpath] = {hpath, $};
