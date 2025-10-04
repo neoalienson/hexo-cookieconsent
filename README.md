@@ -18,7 +18,9 @@ The plugin has several options.
 Go to: https://cookieconsent.insites.com/download/
 
 Create your cookieconsent how you want it using the form.
-Paste the object into your hexo _config.yml file under "options".
+Paste the configuration into your hexo _config.yml file under "options". The plugin automatically detects and supports both JSON and YAML formats.
+
+### JSON Format
 ``` yaml
 cookieconsent:
   enable: true
@@ -42,6 +44,27 @@ cookieconsent:
                "href": "buzzcat.com"
              }
            }
+```
+
+### YAML Format
+``` yaml
+cookieconsent:
+  enable: true
+  options:
+    palette:
+      popup:
+        background: "#eb6c44"
+        text: "#ffffff"
+      button:
+        background: "#f5d948"
+    theme: "classic"
+    position: "top"
+    static: true
+    content:
+      message: "This website uses cookies to ensure you get the best experience on our website. Who doesn't like cookies?"
+      dismiss: "Feed me"
+      link: "Cookie recipes"
+      href: "buzzcat.com"
 ```
 
 The script is inserted during hexo generate so don't forget:

@@ -16,7 +16,9 @@ const CookieConsent = () => {
             contents.on('data', (chunk) => (htmlTxt += chunk));
             contents.on('end', () => {
                 const $ = cheerio.load(htmlTxt, {decodeEntities: false});
-                const options = JSON.stringify(hexo.config.cookieconsent.options);
+                const options = typeof hexo.config.cookieconsent.options === 'string' 
+                    ? hexo.config.cookieconsent.options 
+                    : JSON.stringify(hexo.config.cookieconsent.options);
 
                 let injection = 
                     '<script ' + 
