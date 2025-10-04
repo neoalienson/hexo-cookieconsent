@@ -24,14 +24,12 @@ const CookieConsent = () => {
                 const cssUrl = hexo.config.cookieconsent.cssUrl || 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@3.1.0/dist/cookieconsent.css';
                 const injectJs = hexo.config.cookieconsent.injectJs !== false;
 
+                let injection = '';
                 if (injectJs) {
-                    let injection = 
-                        '<script ' + 
-                        `src="${jsUrl}"` +
-                        '></script>' +
-                        `<script >CookieConsent.run(${options})</script>`;
-                    $('body').after(injection);
+                    injection += '<script ' + `src="${jsUrl}"` + '></script>';
                 }
+                injection += `<script >CookieConsent.run(${options})</script>`;
+                $('body').after(injection);
 
                 let styles = `<link rel="stylesheet" type="text/css" href="${cssUrl}">`;
                 $('head').append(styles);
